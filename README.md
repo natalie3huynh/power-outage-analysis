@@ -36,6 +36,7 @@ To answer these questions, we analyze `power`, a dataset of 1,534 rows. We extra
 | `PC.REALGSP.STATE`        | Per capita real GSP of the state (2009 USD)            |
 
 We group the above variables into the following categories:
+
 | Category                              | Variables                                                           |
 |:--------------------------------------|:--------------------------------------------------------------------|
 | General Info                          | YEAR, MONTH, U.S._STATE, POSTAL.CODE                                |
