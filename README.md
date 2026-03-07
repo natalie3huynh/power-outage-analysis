@@ -37,51 +37,52 @@ To answer these questions, we analyze `power`, a dataset of 1,534 rows. We extra
 
 We group the above variables into the following categories:
 
-We group the above variables into the following categories:
-
 <table>
   <thead>
     <tr>
-      <th>`Category`</th>
-      <th>`Variables`</th>
+      <th>Category</th>
+      <th>Variables</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>`General Info`</td>
-      <td>`YEAR`, `MONTH`, `U.S._STATE`, `POSTAL.CODE`</td>
+      <td>General Info</td>
+      <td><code>YEAR</code>, <code>MONTH</code>, <code>U.S._STATE</code>, <code>POSTAL.CODE</code></td>
     </tr>
     <tr>
-      <td>`Climate`</td>
-      <td>`CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY`</td>
+      <td>Climate</td>
+      <td><code>CLIMATE.REGION</code>, <code>ANOMALY.LEVEL</code>, <code>CLIMATE.CATEGORY</code></td>
     </tr>
     <tr>
-      <td>`Outage Timing`</td>
-      <td>`OUTAGE.START.DATE`<br>`OUTAGE.START.TIME`<br>`OUTAGE.RESTORATION.DATE`<br>`OUTAGE.RESTORATION.TIME`</td>
+      <td>Outage Timing</td>
+      <td><code>OUTAGE.START.DATE</code><br>
+          <code>OUTAGE.START.TIME</code><br>
+          <code>OUTAGE.RESTORATION.DATE</code><br>
+          <code>OUTAGE.RESTORATION.TIME</code>
+      </td>
     </tr>
     <tr>
-      <td>`Outage Info`</td>
-      <td>`CAUSE.CATEGORY`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `DEMAND.LOSS.MW`</td>
+      <td>Outage Info</td>
+      <td><code>CAUSE.CATEGORY</code>, <code>OUTAGE.DURATION</code>, <code>CUSTOMERS.AFFECTED</code>, <code>DEMAND.LOSS.MW</code></td>
     </tr>
     <tr>
-      <td>`Electricity Consumption (Percentages)`</td>
-      <td>`RES.PERCEN`, `COM.PERCEN`, `IND.PERCEN`</td>
+      <td>Electricity Consumption (Percentages)</td>
+      <td><code>RES.PERCEN</code>, <code>COM.PERCEN</code>, <code>IND.PERCEN</code></td>
     </tr>
     <tr>
-      <td>`Customers`</td>
-      <td>`RES.CUST.PCT`, `COM.CUST.PCT`, `IND.CUST.PCT`</td>
+      <td>Customers</td>
+      <td><code>RES.CUST.PCT</code>, <code>COM.CUST.PCT</code>, <code>IND.CUST.PCT</code></td>
     </tr>
     <tr>
-      <td>`Land-use / Population`</td>
-      <td>`POPULATION`, `POPPCT_URBAN`, `POPDEN_URBAN`</td>
+      <td>Land-use / Population</td>
+      <td><code>POPULATION</code>, <code>POPPCT_URBAN</code>, <code>POPDEN_URBAN</code></td>
     </tr>
     <tr>
-      <td>`Economy`</td>
-      <td>`PC.REALGSP.STATE`</td>
+      <td>Economy</td>
+      <td><code>PC.REALGSP.STATE</code></td>
     </tr>
   </tbody>
 </table>
-
 
 ## Data Cleaning and Exploratory Data Analysis:
 
