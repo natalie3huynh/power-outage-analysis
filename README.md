@@ -104,3 +104,10 @@ To prepare the data for analysis, we conduct the following:
 |   2012 | June    | Minnesota    | MN            | East North Central |            -0.1 | normal             | severe weather     | 2012-06-19 00:00:00 | 04:30:00            | 2012-06-20 00:00:00       | 23:00:00                  |              2550 |              nan |      31.9941 |      33.5433 |      34.4393 |        88.8954 |        10.6822 |       0.422355 |                68200 |      5380443 |          73.27 |           2279 |              51598 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
 |   2015 | July    | Minnesota    | MN            | East North Central |             1.2 | warm               | severe weather     | 2015-07-18 00:00:00 | 02:00:00            | 2015-07-19 00:00:00       | 07:00:00                  |              1740 |              250 |      33.9826 |      36.2059 |      29.7795 |        88.8216 |        10.8113 |       0.367005 |               250000 |      5489594 |          73.27 |           2279 |              54431 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
 
+### Univariate Analysis:
+<iframe
+  src="assets/outage-duration.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
