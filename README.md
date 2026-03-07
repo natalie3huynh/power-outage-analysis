@@ -36,17 +36,16 @@ To answer these questions, we analyze `power`, a dataset of 1,534 rows. We extra
 | `PC.REALGSP.STATE`        | Per capita real GSP of the state (2009 USD)            |
 
 We group the above variables into the following categories:
-| Category                                  | Variables                                                                                      |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| **General Info**                          | `YEAR`, `MONTH`, `U.S._STATE`, `POSTAL.CODE`                                                   |
-| **Climate**                               | `CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY`                                          |
-| **Outage Timing**                         | `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, `OUTAGE.RESTORATION.TIME` |
-| **Outage Info**                           | `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `DEMAND.LOSS.MW`                    |
-| **Electricity Consumption (Percentages)** | `RES.PERCEN`, `COM.PERCEN`, `IND.PERCEN`                                                       |
-| **Customers**                             | `RES.CUST.PCT`, `COM.CUST.PCT`, `IND.CUST.PCT`                                                 |
-| **Land-use / Population**                 | `POPULATION`, `POPPCT_URBAN`, `POPDEN_URBAN`                                                   |
-| **Economy**                               | `PC.REALGSP.STATE`         
-
+| Category                                  | Variables |
+| ----------------------------------------- | --------- |
+| **General Info**                          | `YEAR`, `MONTH`, `U.S._STATE`, `POSTAL.CODE` |
+| **Climate**                               | `CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY` |
+| **Outage Timing**                         | `OUTAGE.START.DATE`<br>`OUTAGE.START.TIME`<br>`OUTAGE.RESTORATION.DATE`<br>`OUTAGE.RESTORATION.TIME` |
+| **Outage Info**                           | `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `DEMAND.LOSS.MW` |
+| **Electricity Consumption (Percentages)** | `RES.PERCEN`, `COM.PERCEN`, `IND.PERCEN` |
+| **Customers**                             | `RES.CUST.PCT`, `COM.CUST.PCT`, `IND.CUST.PCT` |
+| **Land-use / Population**                 | `POPULATION`, `POPPCT_URBAN`, `POPDEN_URBAN` |
+| **Economy**                               | `PC.REALGSP.STATE` |
 ## Data Cleaning and Exploratory Data Analysis:
 
 To prepare the data for analysis, we conduct the following:
@@ -59,5 +58,11 @@ To prepare the data for analysis, we conduct the following:
 
 4. **Creating New Columns**: I create a binary column, `is_long`, to measure the severity of the outage for later modeling purposes. This column is based off `OUTAGE.DURATION` where outages which lasted in the top 25% of power outages is considered a long outage. 
 
-print(power.head().to_markdown(index=False))
+|   YEAR | MONTH   | U.S._STATE   | POSTAL.CODE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | OUTAGE.START.DATE   | OUTAGE.START.TIME   | OUTAGE.RESTORATION.DATE   | OUTAGE.RESTORATION.TIME   |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   CUSTOMERS.AFFECTED |   POPULATION |   POPPCT_URBAN |   POPDEN_URBAN |   PC.REALGSP.STATE | OUTAGE.START        | OUTAGE.RESTORATION   |
+|-------:|:--------|:-------------|:--------------|:-------------------|----------------:|:-------------------|:-------------------|:--------------------|:--------------------|:--------------------------|:--------------------------|------------------:|-----------------:|-------------:|-------------:|-------------:|---------------:|---------------:|---------------:|---------------------:|-------------:|---------------:|---------------:|-------------------:|:--------------------|:---------------------|
+|   2011 | July    | Minnesota    | MN            | East North Central |            -0.3 | normal             | severe weather     | 2011-07-01 00:00:00 | 17:00:00            | 2011-07-03 00:00:00       | 20:00:00                  |              3060 |              nan |      35.5491 |      32.225  |      32.2024 |        88.9448 |        10.644  |       0.411181 |                70000 |      5348119 |          73.27 |           2279 |              51268 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |
+|   2014 | May     | Minnesota    | MN            | East North Central |            -0.1 | normal             | intentional attack | 2014-05-11 00:00:00 | 18:38:00            | 2014-05-11 00:00:00       | 18:39:00                  |                 1 |              nan |      30.0325 |      34.2104 |      35.7276 |        88.8335 |        10.7916 |       0.37482  |                  nan |      5457125 |          73.27 |           2279 |              53499 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |
+|   2010 | October | Minnesota    | MN            | East North Central |            -1.5 | cold               | severe weather     | 2010-10-26 00:00:00 | 20:00:00            | 2010-10-28 00:00:00       | 22:00:00                  |              3000 |              nan |      28.0977 |      34.501  |      37.366  |        88.9206 |        10.687  |       0.392361 |                70000 |      5310903 |          73.27 |           2279 |              50447 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |
+|   2012 | June    | Minnesota    | MN            | East North Central |            -0.1 | normal             | severe weather     | 2012-06-19 00:00:00 | 04:30:00            | 2012-06-20 00:00:00       | 23:00:00                  |              2550 |              nan |      31.9941 |      33.5433 |      34.4393 |        88.8954 |        10.6822 |       0.422355 |                68200 |      5380443 |          73.27 |           2279 |              51598 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
+|   2015 | July    | Minnesota    | MN            | East North Central |             1.2 | warm               | severe weather     | 2015-07-18 00:00:00 | 02:00:00            | 2015-07-19 00:00:00       | 07:00:00                  |              1740 |              250 |      33.9826 |      36.2059 |      29.7795 |        88.8216 |        10.8113 |       0.367005 |               250000 |      5489594 |          73.27 |           2279 |              54431 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
 
