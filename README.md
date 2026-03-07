@@ -37,19 +37,16 @@ To answer these questions, we analyze `power`, a dataset of 1,534 rows. We extra
 
 We group the above variables into the following categories:
 
-| Category                              | Variables                                                           |
-|:--------------------------------------|:--------------------------------------------------------------------|
-| General Info                          | YEAR, MONTH, U.S._STATE, POSTAL.CODE                                |
-| Climate                               | CLIMATE.REGION, ANOMALY.LEVEL, CLIMATE.CATEGORY                     |
-| Outage Timing                         | OUTAGE.START.DATE                                                   |
-|                                       | OUTAGE.START.TIME                                                   |
-|                                       | OUTAGE.RESTORATION.DATE                                             |
-|                                       | OUTAGE.RESTORATION.TIME                                             |
-| Outage Info                           | CAUSE.CATEGORY, OUTAGE.DURATION, CUSTOMERS.AFFECTED, DEMAND.LOSS.MW |
-| Electricity Consumption (Percentages) | RES.PERCEN, COM.PERCEN, IND.PERCEN                                  |
-| Customers                             | RES.CUST.PCT, COM.CUST.PCT, IND.CUST.PCT                            |
-| Land-use / Population                 | POPULATION, POPPCT_URBAN, POPDEN_URBAN                              |
-| Economy                               | PC.REALGSP.STATE                                                    |
+| `Category`                            | `Variables`                                                                                          |
+|:--------------------------------------|:-----------------------------------------------------------------------------------------------------|
+| General Info                          | `YEAR`<br>`MONTH`<br>`U.S._STATE`<br>`POSTAL.CODE`                                                   |
+| Climate                               | `CLIMATE.REGION`<br>`ANOMALY.LEVEL`<br>`CLIMATE.CATEGORY`                                            |
+| Outage Timing                         | `OUTAGE.START.DATE`<br>`OUTAGE.START.TIME`<br>`OUTAGE.RESTORATION.DATE`<br>`OUTAGE.RESTORATION.TIME` |
+| Outage Info                           | `CAUSE.CATEGORY`<br>`OUTAGE.DURATION`<br>`CUSTOMERS.AFFECTED`<br>`DEMAND.LOSS.MW`                    |
+| Electricity Consumption (Percentages) | `RES.PERCEN`<br>`COM.PERCEN`<br>`IND.PERCEN`                                                         |
+| Customers                             | `RES.CUST.PCT`<br>`COM.CUST.PCT`<br>`IND.CUST.PCT`                                                   |
+| Land-use / Population                 | `POPULATION`<br>`POPPCT_URBAN`<br>`POPDEN_URBAN`                                                     |
+| Economy                               | `PC.REALGSP.STATE`                                                                                   |
 ## Data Cleaning and Exploratory Data Analysis:
 
 To prepare the data for analysis, we conduct the following:
