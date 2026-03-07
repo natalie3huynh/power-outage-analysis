@@ -39,16 +39,50 @@ We group the above variables into the following categories:
 
 We group the above variables into the following categories:
 
-|  Category  |  Variables  |
-|------------|-------------|
-| `General Info` | `YEAR`, `MONTH`, `U.S._STATE`, `POSTAL.CODE` |
-| `Climate` | `CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY` |
-| `Outage Timing` | `OUTAGE.START.DATE`<br>`OUTAGE.START.TIME`<br>`OUTAGE.RESTORATION.DATE`<br>`OUTAGE.RESTORATION.TIME` |
-| `Outage Info` | `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `DEMAND.LOSS.MW` |
-| `Electricity Consumption (Percentages)` | `RES.PERCEN`, `COM.PERCEN`, `IND.PERCEN` |
-| `Customers` | `RES.CUST.PCT`, `COM.CUST.PCT`, `IND.CUST.PCT` |
-| `Land-use / Population` | `POPULATION`, `POPPCT_URBAN`, `POPDEN_URBAN` |
-| `Economy` | `PC.REALGSP.STATE` |
+<table>
+  <thead>
+    <tr>
+      <th>`Category`</th>
+      <th>`Variables`</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`General Info`</td>
+      <td>`YEAR`, `MONTH`, `U.S._STATE`, `POSTAL.CODE`</td>
+    </tr>
+    <tr>
+      <td>`Climate`</td>
+      <td>`CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY`</td>
+    </tr>
+    <tr>
+      <td>`Outage Timing`</td>
+      <td>`OUTAGE.START.DATE`<br>`OUTAGE.START.TIME`<br>`OUTAGE.RESTORATION.DATE`<br>`OUTAGE.RESTORATION.TIME`</td>
+    </tr>
+    <tr>
+      <td>`Outage Info`</td>
+      <td>`CAUSE.CATEGORY`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `DEMAND.LOSS.MW`</td>
+    </tr>
+    <tr>
+      <td>`Electricity Consumption (Percentages)`</td>
+      <td>`RES.PERCEN`, `COM.PERCEN`, `IND.PERCEN`</td>
+    </tr>
+    <tr>
+      <td>`Customers`</td>
+      <td>`RES.CUST.PCT`, `COM.CUST.PCT`, `IND.CUST.PCT`</td>
+    </tr>
+    <tr>
+      <td>`Land-use / Population`</td>
+      <td>`POPULATION`, `POPPCT_URBAN`, `POPDEN_URBAN`</td>
+    </tr>
+    <tr>
+      <td>`Economy`</td>
+      <td>`PC.REALGSP.STATE`</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Data Cleaning and Exploratory Data Analysis:
 
 To prepare the data for analysis, we conduct the following:
