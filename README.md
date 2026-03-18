@@ -241,7 +241,7 @@ Here, we visualize missingness of outage duration information by month.
   frameborder="0"
 ></iframe>
 
-After conducing a permutation test shuffling the month labels with 1000 trials, I find that the results are not significant and I fail to reject the null hypothesis. This means that there is not enough evidence to suggest that the missingness of Outage Duration does depend on month. Below is the empirical distribution of the TVD:
+After conducting a permutation test shuffling the month labels with 1000 trials, I find that the results are not significant and I fail to reject the null hypothesis. This means that there is not enough evidence to suggest that the missingness of Outage Duration does depend on month. Below is the empirical distribution of the TVD:
 
 <iframe
   src="assets/tvd-month-hist.html"
