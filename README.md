@@ -270,7 +270,7 @@ I start by conducting a permutation test at a significance level of 0.05, and a 
 Here, we visualize missingness of outage duration information by climate region.
 
 <iframe
-  src="assets/missing-duration-climate.html"
+  src="assets/missingness-climate.html"
   width="800"
   height="600"
   frameborder="0"
