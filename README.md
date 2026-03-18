@@ -225,6 +225,8 @@ To actually understand if these data are MAR, it might be useful to understand w
 Since `OUTAGE.DURATION` is one measure of outage severity with high, non-trivial missingnes which I plan to use as my target variable, I start by assessing missingness in this variable. Since `OUTAGE.DURATION` is likely affiliated with less extreme outage (perhaps it was an outage that occurred during a month where more outages occurred at smaller scales and were not reported since less customers were affected), or one where not too many customers were affected and the company may not have decided to report the duration. Finally, it is plausible that if the outage was in a climatic region which is not typically affected by extreme weather conditions and was a less severe outage, the duration may also not have been reported. Dependency is tested in the below permutation tests based on these expectations:
 
 >Outage Duration and Month: 
+
+
 **Null Hypothesis**: Missingness of outage duration does not depend on month.
 
 **Alternative Hypothesis**: Missingness of outage duration does depend on month. 
