@@ -108,15 +108,17 @@ To prepare the data for analysis, I conduct the following:
 
 Below is what the dataframe looks like now:
 
-|   YEAR | MONTH   | U.S._STATE   | POSTAL.CODE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.DATE   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   TOTAL.CUSTOMERS |   DEMAND.LOSS.MW |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   POPPCT_URBAN |   POPULATION |   PC.REALGSP.STATE | is_long   |
-|-------:|:--------|:-------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------------|:-------------------|------------------:|---------------------:|------------------:|-----------------:|-------------:|-------------:|-------------:|---------------:|-------------:|-------------------:|:----------|
-|   2011 | July    | Minnesota    | MN            | East North Central |            -0.3 | normal             | 2011-07-01 00:00:00 | 2011-07-03 00:00:00       | severe weather     |              3060 |                70000 |           2595696 |              nan |      35.5491 |      32.225  |      32.2024 |          73.27 |      5348119 |              51268 | True      |
-|   2014 | May     | Minnesota    | MN            | East North Central |            -0.1 | normal             | 2014-05-11 00:00:00 | 2014-05-11 00:00:00       | intentional attack |                 1 |                  nan |           2640737 |              nan |      30.0325 |      34.2104 |      35.7276 |          73.27 |      5457125 |              53499 | False     |
-|   2010 | October | Minnesota    | MN            | East North Central |            -1.5 | cold               | 2010-10-26 00:00:00 | 2010-10-28 00:00:00       | severe weather     |              3000 |                70000 |           2586905 |              nan |      28.0977 |      34.501  |      37.366  |          73.27 |      5310903 |              50447 | False     |
-|   2012 | June    | Minnesota    | MN            | East North Central |            -0.1 | normal             | 2012-06-19 00:00:00 | 2012-06-20 00:00:00       | severe weather     |              2550 |                68200 |           2606813 |              nan |      31.9941 |      33.5433 |      34.4393 |          73.27 |      5380443 |              51598 | False     |
-|   2015 | July    | Minnesota    | MN            | East North Central |             1.2 | warm               | 2015-07-18 00:00:00 | 2015-07-19 00:00:00       | severe weather     |              1740 |               250000 |           2673531 |              250 |      33.9826 |      36.2059 |      29.7795 |          73.27 |      5489594 |              54431 | False     |
-/var/folders/g_/vqtx8mxn1vx_26q8s5whsgh40000gn/T/ipykernel_66845/1113245167.py:109: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-  power[cols_with_missing] = power[cols_with_missing].replace(0, np.nan)
+Head of cleaned dataframe: 
+
+| YEAR | MONTH   | U.S._STATE | POSTAL.CODE | CLIMATE.REGION     | ANOMALY.LEVEL | CLIMATE.CATEGORY | OUTAGE.START.DATE     | OUTAGE.RESTORATION.DATE | CAUSE.CATEGORY      | OUTAGE.DURATION | CUSTOMERS.AFFECTED | TOTAL.CUSTOMERS | DEMAND.LOSS.MW | RES.PERCEN | COM.PERCEN | IND.PERCEN | POPPCT_URBAN | POPULATION | PC.REALGSP.STATE | is_long |
+|------|---------|------------|-------------|------------------|---------------|-----------------|---------------------|------------------------|--------------------|----------------|------------------|----------------|----------------|------------|------------|------------|---------------|------------|-----------------|---------|
+| 2011 | July    | Minnesota  | MN          | East North Central | -0.3         | normal          | 2011-07-01 00:00:00 | 2011-07-03 00:00:00    | severe weather     | 3060           | 70000            | 2595696        | nan            | 35.5491    | 32.225     | 32.2024    | 73.27         | 5348119    | 51268           | True    |
+| 2014 | May     | Minnesota  | MN          | East North Central | -0.1         | normal          | 2014-05-11 00:00:00 | 2014-05-11 00:00:00    | intentional attack | 1              | nan              | 2640737        | nan            | 30.0325    | 34.2104    | 35.7276    | 73.27         | 5457125    | 53499           | False   |
+| 2010 | October | Minnesota  | MN          | East North Central | -1.5         | cold            | 2010-10-26 00:00:00 | 2010-10-28 00:00:00    | severe weather     | 3000           | 70000            | 2586905        | nan            | 28.0977    | 34.501     | 37.366     | 73.27         | 5310903    | 50447           | False   |
+| 2012 | June    | Minnesota  | MN          | East North Central | -0.1         | normal          | 2012-06-19 00:00:00 | 2012-06-20 00:00:00    | severe weather     | 2550           | 68200            | 2606813        | nan            | 31.9941    | 33.5433    | 34.4393    | 73.27         | 5380443    | 51598           | False   |
+| 2015 | July    | Minnesota  | MN          | East North Central | 1.2          | warm            | 2015-07-18 00:00:00 | 2015-07-19 00:00:00    | severe weather     | 1740           | 250000           | 2673531        | 250            | 33.9826    | 36.2059    | 29.7795    | 73.27         | 5489594    | 54431           | False   |
+
+
 ### Univariate Analysis:
 As an initial visual demonstration, we are interested in seeing the visual spread of these outages across the U.S. As mentioned in our introduction, outages typically occur much more frequently in California and Texas, as well as the East Coast and Washington. The frequency of outages in these states which tend to experience more extreme weather patterns (heat waves or rain/snow storms) may be interesting in later analyses.
 
@@ -200,14 +202,15 @@ We have observed that the following covariates have the highest missingness:
 In the `power` dataset, we observed above that `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED` had values of 0, which we replaced with NaNs. Other columns that already had NaN values include `MONTH`, `CLIMATE.REGION`, `ANOMALY.LEVEL`, `CLIMATE.CATEGORY`, `OUTAGE.START.DATE`, `OUTAGE.RESTORATION.DATE`, `RES.PERCEN`, `COM.PERCEN`, and `IND.PERCEN`.
 
 We have observed that the following covariates have the highest missingness:
-| Column                  |   NaN_Count |
-|:------------------------|------------:|
-| DEMAND.LOSS.MW          |         901 |
-| CUSTOMERS.AFFECTED      |         655 |
-| OUTAGE.DURATION         |         136 |
-| OUTAGE.RESTORATION.DATE |          58 |
-| RES.PERCEN              |          22 |
-| COM.PERCEN              |          22 |
+
+| Column                  | NaN_Count |
+|:------------------------|----------:|
+| DEMAND.LOSS.MW          |       901 |
+| CUSTOMERS.AFFECTED      |       655 |
+| OUTAGE.DURATION         |       136 |
+| OUTAGE.RESTORATION.DATE |        58 |
+| RES.PERCEN              |        22 |
+| COM.PERCEN              |        22 |
 
 Tying this back to the data generating process, missingness not at random (MNAR) can be hypothesized to be caused by the following for the top 4 missing covariates:
 
@@ -346,7 +349,8 @@ Above, we report accuracy and evaluate recall and the F1-Score on both the train
 
 From the above, accuracy, recall, and F1-Score are not very high. For further interpretation, a recall of 0.60 means that the baseline only correclty identifies 60% of severe/longer outages. Since the goal of this predictive task is to detect long outages, this metric is relatively low, as is the F1-score, suggesting that there is room for improvement in the model. We can use this model as a benchmark for our final model.
 
-When selecting variables to include in our model, it is important to know what features are actually available at the time of prediction. These features include outage information including the year, month, state, postal code, climate information, land usage/energy usage, economic factors of the state, and urbanization levels. At the time of prediction, we do not have access to outage restoration times, the number of customers affected, or cause category so we refrain from using these features in our model.
+## Final Model
+When selecting variables to include in our final model, it is important to know what features are actually available at the time of prediction. These features include outage information including the year, month, state, postal code, climate information, land usage/energy usage, economic factors of the state, and urbanization levels. At the time of prediction, we do not have access to outage restoration times, the number of customers affected, or cause category so we refrain from using these features in our model.
 
 Given the available covariates at the time of prediction, I decided to include the below features and describe why each feature/transformed feature may be meaningful toward improving my model.
 
