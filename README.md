@@ -210,15 +210,15 @@ We have observed that the following covariates have the highest missingness:
 | RES.PERCEN              |        22 |
 | COM.PERCEN              |        22 |
 
-Tying this back to the data generating process, missingness not at random (MNAR) can be hypothesized to be caused by the following for the top 4 missing covariates:
+Based on the data generating process, several of these variables are likely missing not at random (MNAR), meaning that missingness depends on the unobserved value itself.
 
-- `DEMAND.LOSS.MW`: This was intended to be a report of the amount of peak demand lost during an outage. However, in many cases, total demand was reported instead. This signifies that if peak demand is not recorded, `DEMAND.LOWW.MW` might be missing altogether.
+`DEMAND.LOSS.MW`: If the peak demand loss is very small, it may not be recorded at all. Thus, missingness is directly related to the unobserved value of demand loss.
 
-- `CUSTOMERS.AFFECTED`: If outages were on the smaller side, it is likely that the number of customers affected may not have been recorded. 
+`CUSTOMERS.AFFECTED`: If outages are smaller, they may affect few customers, causing providers to not report the number of affected customers. Therefore, missingness is more likely when the value of customers affected is low.
 
-- `OUTAGE.DURATION` and `OUTAGE.RESTORATION.DATE`: It is likely that if either of these were missing, the event was trivial/very short, so companies did not record how long they took or when they were restored.
+`OUTAGE.DURATION` and `OUTAGE.RESTORATION.DATE`: Short or trivial outages may not be fully documented, meaning that outages with shorter durations are more likely to have missing values.
 
-To actually understand if these data are MAR, it might be useful to understand what certain reporting protocols are for energy companies across different states (for example, additional data on if different companies or states have different thresholds for reporting severe outages). 
+To better assess whether these variables could be considered MAR rather than MNAR, it would be useful to obtain additional data about reporting practices, such as utility company policies or state-level reporting thresholds. For example, if certain states only report outages above a specific duration or severity, then understanding that certain conditions hold for different states or energy providers would make certain variables MAR rather than MNAR.
 
 ### Missingness Dependency
 
