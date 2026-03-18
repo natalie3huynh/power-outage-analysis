@@ -405,12 +405,18 @@ Finally, it is important to assess fairness for the final model. To do so, model
 
 - **Group A**: Outages with less than or equal to 84% state urbanization.
 - **Group B**: Outages with over 84% state urbanization.
-- **Evaluation Metric**: Differences in recall
+- **Test Statistic**: Differences in recall
 - **Significance Level**: 0.05
 
 **Null Hypothesis**: The model is fair. It's recall is the same for outages which occur in states with low to moderate urbanization (urbanization < 84%), and any differences are due to chance. 
 
 **Alternative Hypothesis**: The model is unfair. It's recall is higher for outages which occur in states with high urbanization (urbanization > 84%) than with lower urbanization.
 
-**Results**: 
-The p-value is 0.003 is less than 0.05, thus, we reject the null hypothesis. This result is statistically significant, suggesting there is evidence that the final model is not fair with respect to urbanization level and may achieve higher recall for outages which occur in states with higher urbanization levels in comparison to states with lower urbanization levels.
+<iframe
+  src="assets/urban-recall-difference.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+**Results**: Running a permutation test with 1,000 trials, the resulting p-value is 0.003 which is less than 0.05; thus, we reject the null hypothesis. This result is statistically significant, suggesting there is evidence that the final model is not fair with respect to urbanization level and may achieve higher recall for outages which occur in states with higher urbanization levels in comparison to states with lower urbanization levels.
