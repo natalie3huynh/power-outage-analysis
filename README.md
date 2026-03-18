@@ -108,8 +108,6 @@ To prepare the data for analysis, I conduct the following:
 
 Below is what the dataframe looks like now:
 
-Head of cleaned dataframe: 
-
 | YEAR | MONTH   | U.S._STATE | POSTAL.CODE | CLIMATE.REGION     | ANOMALY.LEVEL | CLIMATE.CATEGORY | OUTAGE.START.DATE     | OUTAGE.RESTORATION.DATE | CAUSE.CATEGORY      | OUTAGE.DURATION | CUSTOMERS.AFFECTED | TOTAL.CUSTOMERS | DEMAND.LOSS.MW | RES.PERCEN | COM.PERCEN | IND.PERCEN | POPPCT_URBAN | POPULATION | PC.REALGSP.STATE | is_long |
 |------|---------|------------|-------------|------------------|---------------|-----------------|---------------------|------------------------|--------------------|----------------|------------------|----------------|----------------|------------|------------|------------|---------------|------------|-----------------|---------|
 | 2011 | July    | Minnesota  | MN          | East North Central | -0.3         | normal          | 2011-07-01 00:00:00 | 2011-07-03 00:00:00    | severe weather     | 3060           | 70000            | 2595696        | nan            | 35.5491    | 32.225     | 32.2024    | 73.27         | 5348119    | 51268           | True    |
